@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block start %}
+<div class="form-container">
+  <h2>Add a New Recipe</h2>
+
+  <form method="POST" enctype="multipart/form-data">  <!-- Include enctype for file uploads -->
+    {% csrf_token %}
+
+    <div class="form-group">
+      <label for="recipename">Recipe Name</label>
+      <input type="text" id="recipename" name="recipename" placeholder="Enter recipe name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="recipedescription">Recipe Description</label>
+      <textarea id="recipedescription" name="recipedescription" rows="4" placeholder="Describe your recipe" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="recipeimage">Upload Recipe Image</label>
+      <input type="file" id="recipeimage" name="recipeimage" accept="image/*" required>  <!-- Image input -->
+    </div>
+
+    <button type="submit" class="submit-btn">Submit Recipe</button>
+  </form>
+</div>
+{% endblock %}
